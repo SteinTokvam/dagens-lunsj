@@ -30,15 +30,14 @@ export default function Meny() {
         })
         return meny
     }
-    
-    const print = (isKroken) => {
-        getMeny(isKroken ? 'https://mustadkantine.no/kafekroken' : 'https://mustadkantine.no/brightcafe').then(e => isKroken ? setKroken(e) : setBright(e))
-    }
 
     useEffect(() => {
+        const print = (isKroken) => {
+            getMeny(isKroken ? 'https://mustadkantine.no/kafekroken' : 'https://mustadkantine.no/brightcafe').then(e => isKroken ? setKroken(e) : setBright(e))
+        }
         print(true)
         print(false)
-    });
+    }, []);
 
     function format(string) {
         return string
@@ -59,16 +58,15 @@ export default function Meny() {
             const meny = d.meny.split('<br />').splice(2)
             if(index === dayOfWeek-1) {
                 return(<>
-                    <h3>{d.day}</h3>
+                    <h3 key={index}>{d.day}</h3>
                     {
-                        meny.map((m) => {
-                            return(<p>{format(m)}</p>)
+                        meny.map((m, index) => {
+                            return(<p key={index}>{format(m)}</p>)
                         })
                     }
-                    <p>{}</p>
                 </>)
             }
-            return null
+            return <p key={index}></p>
         }) 
         : 'Stengt'}
     </div>
@@ -79,16 +77,15 @@ export default function Meny() {
             const meny = d.meny.split('<br />').splice(2)
             if(index === dayOfWeek-1) {
                 return(<>
-                    <h3>{d.day}</h3>
+                    <h3 key={index}>{d.day}</h3>
                     {
-                        meny.map((m) => {
-                            return(<p>{format(m)}</p>)
+                        meny.map((m, index) => {
+                            return(<p key={index}>{format(m)}</p>)
                         })
                     }
-                    <p>{}</p>
                 </>)
             }
-            return null
+            return <p key={index}></p>
         }) 
         : 'Stengt'}
     </div>
