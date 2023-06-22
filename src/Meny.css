@@ -15,4 +15,7 @@
     .float-container {
         flex-direction: column;
     }
+    .float-child:first-child{
+        margin-right: 0px;
+    }
 }

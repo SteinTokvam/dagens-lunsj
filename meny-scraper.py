@@ -18,7 +18,7 @@ def hent_meny(tagger):
         counter = counter + 1
 
     for dag in dager:
-        meny.append({'dag': dag['text'], 'meny': tagger[dag['index'] + 1].text[5:]})
+        meny.append({'dag': dag['text'], 'meny': tagger[dag['index'] + 1].text[5:]})#text[5:] fjerner ordet lunsj fra menyen
 
     return  meny
 
