@@ -1,32 +1,46 @@
 import { useEffect, useState } from 'react';
 import './Meny.css'
+import Dag from './Dag';
 
 export default function Meny() {
-    const[bright, setBright] = useState('')
- 
+    const[meny, setMeny] = useState('')
+    const dayOfWeek = new Date().getDay()-1
+
     useEffect(() => {
         function getMeny(url) {
             fetch(url)
             .then((res) => res.json())
-            .then(e => setBright(e))
+            .then(e => setMeny(e))
         }
         getMeny('https://raw.githubusercontent.com/SteinTokvam/dagens-lunsj/main/meny.json')
     }, []);
 
-    const dayOfWeek = new Date().getDay()-1
+    function getDayMenu(dayOfWeek) {
+        if(meny !== '') {
+            return {
+                kantine: meny[dayOfWeek].kantine,
+                rett: meny[dayOfWeek].meny}
+            }   
+        }
+        return null
+    }
 
-    return(<div className='float-container'>  
-    <div className='float-child'>
-       {bright !== '' ? <h1>{bright[0].Kantine}</h1>: ''}
-       {bright !== '' ? <h3>{bright[0].meny[dayOfWeek].dag}</h3>: ''}
-       {bright !== '' ? <p>{bright[0].meny[dayOfWeek].meny}</p>: ''}
-        
-    </div>
-    <div className='float-child'>
-        {bright !== '' ? <h1>{bright[1].Kantine}</h1>: ''}
-        {bright !== '' ? <h3>{bright[1].meny[dayOfWeek].dag}</h3>: ''}
-        {bright !== '' ? <p>{bright[1].meny[dayOfWeek].meny}</p>: ''}
-    </div>
-    </div>
+    const dagens = getDayMenu(dayOfWeek)
+    return(<>
+        {
+            dagens !== '' ? 
+            dagens.map((d, index) =><Dag key={index} kantine={d.kantine} meny={d.rett}/>) : ''
+        }
+        <div className='restenAvUken'>
+            <h1>Resten av uken</h1>
+            {
+            meny !== '' ? 
+                ''
+                
+                    
+                : ''
+        }  
+      </div>
+    </>
     )
 }

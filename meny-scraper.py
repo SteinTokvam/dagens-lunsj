@@ -8,7 +8,7 @@ def finn_tagger(html_data, tag_navn):
     tagger = soup.find_all(tag_navn)
     return tagger
 
-def hent_meny(tagger):
+def hent_meny(tagger, kantine):
     dager = []
     meny = []
     counter = 0
@@ -18,7 +18,7 @@ def hent_meny(tagger):
         counter = counter + 1
 
     for dag in dager:
-        meny.append({'dag': dag['text'], 'meny': tagger[dag['index'] + 1].text[5:]})#text[5:] fjerner ordet lunsj fra menyen
+        meny.append({dag['text']: {'meny': tagger[dag['index'] + 1].text[5:], 'kantine': kantine}})#text[5:] fjerner ordet lunsj fra menyen
 
     return  meny
 
@@ -32,9 +32,9 @@ for u in url:
     html_data = response.text
 
     tagger = finn_tagger(html_data, ['h1', 'h3', 'p'])
-    tmp = hent_meny(tagger)
-    meny.append({'Kantine': u['kantine'], 'meny': tmp})
+    tmp = hent_meny(tagger, u['kantine'])
+    meny.append(tmp)
 
 print(meny)
-with open('meny.json', 'w') as fil:
+with open('menytest.json', 'w') as fil:
     json.dump(meny, fil)

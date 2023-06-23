@@ -5,8 +5,8 @@ function App() {
  
   return (
     <div className="App">
+      <h1>Dagens Lunsj</h1>
       <Meny/>
-      
     </div>
   );
 }

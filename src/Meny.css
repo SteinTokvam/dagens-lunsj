@@ -1,21 +1,3 @@
-.float-container {
-    display: flex;
-}
-
-.float-child {
-    flex: 1;
-    
-}  
-
-.float-child:first-child {
-    margin-right: 20px;
-} 
-
-@media screen and (max-width:767px) {
-    .float-container {
-        flex-direction: column;
-    }
-    .float-child:first-child{
-        margin-right: 0px;
-    }
+.restenAvUken {
+    margin-top: 20%;
 }
