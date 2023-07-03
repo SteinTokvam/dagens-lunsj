@@ -15,13 +15,15 @@ export default function Meny() {
 
     const dayOfWeek = new Date().getDay()-1
 
-    return(<div className='float-container'>  
-    <div className='float-child'>
-       {bright !== '' ? <h1>{bright[0].Kantine}</h1>: ''}
-       {bright !== '' ? <h3>{bright[0].meny[dayOfWeek].dag}</h3>: ''}
-       {bright !== '' ? <p>{bright[0].meny[dayOfWeek].meny}</p>: ''}
-        
-    </div>
+    return(<div className='float-container'>
+    {/*  
+        <div className='float-child'>
+        {bright !== '' ? <h1>{bright[0].Kantine}</h1>: ''}
+        {bright !== '' ? <h3>{bright[0].meny[dayOfWeek].dag}</h3>: ''}
+        {bright !== '' ? <p>{bright[0].meny[dayOfWeek].meny}</p>: ''}
+            
+        </div>
+*/}
     <div className='float-child'>
         {bright !== '' ? <h1>{bright[1].Kantine}</h1>: ''}
         {bright !== '' ? <h3>{bright[1].meny[dayOfWeek].dag}</h3>: ''}
