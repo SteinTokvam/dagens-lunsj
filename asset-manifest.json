@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dagens-lunsj/static/css/main.5a698f41.css",
+    "main.js": "/dagens-lunsj/static/js/main.89cc4c8d.js",
+    "static/js/787.f158b8aa.chunk.js": "/dagens-lunsj/static/js/787.f158b8aa.chunk.js",
+    "index.html": "/dagens-lunsj/index.html",
+    "main.5a698f41.css.map": "/dagens-lunsj/static/css/main.5a698f41.css.map",
+    "main.89cc4c8d.js.map": "/dagens-lunsj/static/js/main.89cc4c8d.js.map",
+    "787.f158b8aa.chunk.js.map": "/dagens-lunsj/static/js/787.f158b8aa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a698f41.css",
+    "static/js/main.89cc4c8d.js"
+  ]
+}
